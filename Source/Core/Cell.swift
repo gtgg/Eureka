@@ -41,6 +41,13 @@ open class BaseCell: UITableViewCell, BaseCellType {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
 
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if var detailTextLabelFrame = self.detailTextLabel?.frame {
+            detailTextLabelFrame.origin.x = 160
+            self.detailTextLabel?.frame = detailTextLabelFrame
+        }
+    }
     /**
      Function that returns the FormViewController this cell belongs to.
      */
